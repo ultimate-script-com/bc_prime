@@ -1,0 +1,28 @@
+define isprime(n) {
+    if (n < 2) return 0
+    if (n == 2) return 1
+    if (n % 2 == 0) return 0
+
+    i = 3
+    while (i * i <= n) {
+        if (n % i == 0) return 0
+        i = i + 2
+    }
+    return 1
+}
+
+define print_primes_up_to(max) {
+    if (max < 2) return 0
+    print 2, "\n"
+    n = 3
+    while (n <= max) {
+        if (isprime(n)) print n, "\n"
+        n = n + 2
+    }
+    return 0
+}
+
+/* ユーザーから入力を受け取り、戻り値は dummy に捨てる */
+max = read()
+dummy = print_primes_up_to(max)
+quit
